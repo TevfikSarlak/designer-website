@@ -4,12 +4,13 @@ export default function Footer() {
     return (
 
         <footer class="bg-neutral-900 text-center text-white justify-center">
-          <div class="container px-6 pt-6">
+          <div class="container justify-center  px-6 pt-6">
             <div class="mb-6 flex flex-row items-center justify-center">
             <a
                 href="#!"
                 type="button"
-                class="m-1 h-9 w-9 rounded-full border-2 border-white hover:border-blue-600 uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-9 w-9 rounded-full border-2 border-white hover:border-blue-600 uppercase leading-normal
+                 text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -25,7 +26,8 @@ export default function Footer() {
             <a
                 href="#!"
                 type="button"
-                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-blue-500 uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-blue-500 uppercase leading-normal
+                 text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -41,7 +43,8 @@ export default function Footer() {
             <a
                 href="#!"
                 type="button"
-                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-purple-700 uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-purple-700 uppercase leading-normal
+                 text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg
@@ -54,10 +57,11 @@ export default function Footer() {
                 </svg>
             </a>
 
-            <a
+            <a 
                 href="#!"
                 type="button"
-                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-blue-600 uppercase leading-normal text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
+                class="m-1 h-9 w-9 rounded-full border-2 border-white  hover:border-blue-600 uppercase leading-normal
+                 text-white transition duration-150 ease-in-out hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0"
                 data-te-ripple-init
                 data-te-ripple-color="light">
                 <svg

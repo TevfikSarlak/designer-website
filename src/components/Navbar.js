@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isNavOpen, setIsNavOpen] = React.useState(false)
 
   return (
-    <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl   ">
+    <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl w-full">
       <div className="flex flex-row justify-start items-center  ">
       <img src="../images/hook-logo.jpeg" alt="logo" className="h-16 w-16 mr-4 " />
       <h1 className="font-sans  text-2xl font-bold ">
@@ -41,7 +41,7 @@ export default function Navbar() {
 
           
   
-  <div className="md:hidden">
+  <div className="md:hidden max-w-screen-sm">
     <button
       id="menu-btn"
       type="button"
