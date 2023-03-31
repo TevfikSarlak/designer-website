@@ -29,6 +29,8 @@ function App() {
     setCurrentPage(newPage)
   }
 
+
+
   return (
     <div className="App">
       <Navbar handlePageChange={handlePageChange}/>
