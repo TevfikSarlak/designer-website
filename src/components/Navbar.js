@@ -1,8 +1,9 @@
 import React from "react";
 
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [isNavOpen, setIsNavOpen] = React.useState(false)
+  
 
   return (
     <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl w-full">
@@ -14,25 +15,25 @@ export default function Navbar() {
       </div>
       <div class="hidden   pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
                 <div class="group">
-                  <a href="#home">Home</a>
+                  <button onClick={()=>props.onPageChange("Home")}>Home</button>
                   <div
                     className="mx-2 group-hover:border-b  group-hover:border-black "
                   ></div>
                 </div>
                 <div class="group">
-                  <a href="#about" >About</a>
+                  <button onClick={()=>props.onPageChange("About")} >About</button>
                   <div
                     class="mx-2 group-hover:border-b  group-hover:border-black "
                   ></div>
                 </div>
                 <div class="group">
-                  <a href="#portfolio">Portfolio</a>
+                  <button onClick={()=>props.onPageChange("Portfolio")}>Portfolio</button>
                   <div
                     class="mx-2 group-hover:border-b group-hover:border-black "
                   ></div>
                 </div>
                 <div class="group">
-                  <a href="#contact">Contact</a>
+                  <button onClick={()=>props.onPageChange("Contact")}>Contact</button>
                   <div
                     class="mx-2 group-hover:border-b group-hover:border-black"
                   ></div>

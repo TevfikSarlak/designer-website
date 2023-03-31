@@ -1,18 +1,42 @@
 
 import './App.css';
+import React, {useState} from 'react';
 import Navbar from './components/Navbar';
-import Header from './components/Header';
-import Main from './components/Main';
+import Home from './pages/Home';
 import Footer from './components/Footer';
+import Portfolio from './pages/Portfolio';
+import Contact from './pages/Contact';
+import About from './pages/About';
+
 
 
 function App() {
+  const [currentPage, setCurrentPage] = useState("Home");
+
+  let pageComponent;
+
+  if (currentPage === "Home") {
+    pageComponent = <Home />;
+  } else if (currentPage === "About") {
+    pageComponent = <About />;
+  } else if (currentPage === "Contact") {
+    pageComponent = <Contact />;
+  } else if (currentPage === "Portfolio") {
+    pageComponent = <Portfolio />;
+  }
+
+  function handlePageChange(newPage){
+    setCurrentPage(newPage)
+  }
+
   return (
     <div className="App">
-      <Navbar />
-      <Header />
-      <Main />
+      <Navbar onPageChange={handlePageChange}/>
+      
+      {pageComponent}
+      
       <Footer />
+      
     </div>
   );
 }
