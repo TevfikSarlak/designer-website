@@ -1,8 +1,15 @@
-import React from "react";
+import React, {useEffect, useLocation} from "react";
 
 
 export default function Navbar(props) {
   const [isNavOpen, setIsNavOpen] = React.useState(false)
+  const {pathname} = useLocation();
+  
+
+useEffect(()=>{
+  setIsNavOpen(false);
+},[ pathname ])
+  
   
 
   return (
@@ -61,7 +68,7 @@ export default function Navbar(props) {
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
     <div className="flex flex-col leading-10 font-sans">
-      <button onClick={()=>props.handlePageChange("Home")} className="hover:text-gray-600">Home</button>
+      <button onClick={()=>props.handlePageChange("Home")} className="hover:bg-gray-600">Home</button>
       <button onClick={()=>props.handlePageChange("About")} className="hover:text-gray-600">About</button>
       <button onClick={()=>props.handlePageChange("Portfolio")} className="hover:text-gray-600">Portfolio</button>
       <button onClick={()=>props.handlePageChange("Contact")} className="hover:text-gray-600">Contact</button>
