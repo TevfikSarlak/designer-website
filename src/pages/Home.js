@@ -5,7 +5,11 @@ import DataFerry from '../datas/DataFerry';
 import DataYachts from '../datas/DataYachts';
 
 
-export default function Home() {
+export default function Home(props) {
+
+    const handlePageChange = (page) => {
+      props.handlePageChange(page);
+    }
 
     const [navalUrl, setNavalUrl] = React.useState(DataNavalBoats[0])
     const [workUrl,  setWorkUrl] = React.useState(DataWorkBoats[0])
@@ -53,7 +57,7 @@ export default function Home() {
 
     return (
       <div>
-        <div class="relative w-full">
+        <div class="relative w-full font-sans">
              <img src="../images/header.jpg" alt="header" class="w-full object-cover max-w-screen-2xl"/>
          
              <div class="">
@@ -117,8 +121,18 @@ export default function Home() {
             <div>
                 <p className="text-gray-500 text-md text-center md:text-xl mx-4 mt-12 ">
                         If you want to see our work in more detail,  </p>
-                        <p className="text-gray-500 text-md md:text-xl mx-4 text-center mb-24 "> you can check the <span> <a href="www.google.com" class="text-blue-600 underline">Portfolio</a> 
-                        </span> section. </p>
+                        <p className="text-gray-500 text-md md:text-xl mx-4 text-center mb-24 "> you can check the 
+                            <span>
+                              <button
+                                onClick={()=>props.handlePageChange("Portfolio")}
+                                className="text-blue-600 underline px-1"
+                              >
+                                 Portfolio 
+                              </button>
+                            </span>
+                            section.
+                            
+                         </p>
             </div>
 
         </div>

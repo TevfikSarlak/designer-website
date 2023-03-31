@@ -16,7 +16,7 @@ function App() {
   let pageComponent;
 
   if (currentPage === "Home") {
-    pageComponent = <Home />;
+    pageComponent = <Home handlePageChange={handlePageChange}/>;
   } else if (currentPage === "About") {
     pageComponent = <About />;
   } else if (currentPage === "Contact") {
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar onPageChange={handlePageChange}/>
+      <Navbar handlePageChange={handlePageChange}/>
       
       {pageComponent}
       

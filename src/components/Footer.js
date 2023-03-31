@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
     return (
 
-        <footer class="bg-neutral-900 text-center text-white justify-center">
+        <footer class="bg-neutral-900 text-center text-white justify-center font-sans">
           <div class="container justify-center  px-6 pt-6">
             <div class="mb-6 flex flex-row items-center justify-center">
             <a
