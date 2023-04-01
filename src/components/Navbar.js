@@ -68,7 +68,7 @@ export default function Navbar(props) {
 
   <div
     id="menu" 
-    className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black
+    className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black md:hidden
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
     <div className="flex flex-col leading-10 font-sans "  onClick={()=>setIsNavOpen(false)}>
