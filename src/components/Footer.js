@@ -5,7 +5,7 @@ export default function Footer() {
 
         <footer class=" bg-neutral-900 text-center text-white justify-center font-sans">
           <div class="container justify-center  px-6 pt-6 md:mx-auto">
-            <div class="mb-6 flex flex-row items-center justify-center md:mx-auto">
+            <div class="mb-6 flex items-center justify-center md:mx-auto">
             <a
                 href="#!"
                 type="button"
