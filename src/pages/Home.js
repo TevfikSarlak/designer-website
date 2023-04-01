@@ -11,6 +11,11 @@ export default function Home(props) {
       props.handlePageChange(page);
     }
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    
+
     const [navalUrl, setNavalUrl] = React.useState(DataNavalBoats[0])
     const [workUrl,  setWorkUrl] = React.useState(DataWorkBoats[0])
     const [ferryUrl, setFerryUrl] = React.useState(DataFerry[0])

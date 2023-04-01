@@ -1,10 +1,14 @@
 import React from 'react';
-import { useForm, ValidationError } from '@formspree/react';
+import { useForm, ValidationError, useEffect } from '@formspree/react';
 
 export default function Contact() {
-
+   
   const [state, handleSubmit] = useForm("xgebnlvw");
-
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   if (state.succeeded) {
       return <p className='flex flex-col mx-auto justify-center items-center
       mt-72 mb-60 font-sans text-2xl font-bold'>Thanks for sending a message. We will be in touch shortly!</p>;
