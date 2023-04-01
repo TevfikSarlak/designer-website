@@ -3,12 +3,16 @@ import React, {useEffect, useLocation} from "react";
 
 export default function Navbar(props) {
   const [isNavOpen, setIsNavOpen] = React.useState(false)
-  const {pathname} = useLocation();
+  //const {currentPage} = props.handlePageChange();
   
 
-useEffect(()=>{
-  setIsNavOpen(false);
-},[ pathname ])
+//useEffect(()=>{
+  //setIsNavOpen(false);
+//},[ props.handlePageChange()])
+
+//function navMenuCloser(isNavOpen) {
+  //setIsNavOpen(!isNavOpen)
+//}
   
   
 
@@ -63,12 +67,12 @@ useEffect(()=>{
   </div>
 
   <div
-    id="menu"
+    id="menu" 
     className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
-    <div className="flex flex-col leading-10 font-sans">
-      <button onClick={()=>props.handlePageChange("Home")} className="hover:bg-gray-600">Home</button>
+    <div className="flex flex-col leading-10 font-sans "  onClick={()=>setIsNavOpen(false)}>
+      <button onClick={()=>props.handlePageChange("Home")} className="hover:text-bg-gray-600">Home</button>
       <button onClick={()=>props.handlePageChange("About")} className="hover:text-gray-600">About</button>
       <button onClick={()=>props.handlePageChange("Portfolio")} className="hover:text-gray-600">Portfolio</button>
       <button onClick={()=>props.handlePageChange("Contact")} className="hover:text-gray-600">Contact</button>
