@@ -3,9 +3,9 @@ import React from "react";
 export default function Footer() {
     return (
 
-        <footer class="bg-neutral-900 text-center text-white justify-center font-sans">
-          <div class="container justify-center  px-6 pt-6">
-            <div class="mb-6 flex flex-row items-center justify-center">
+        <footer class=" bg-neutral-900 text-center text-white justify-center font-sans">
+          <div class="container justify-center  px-6 pt-6 md:mx-auto">
+            <div class="mb-6 flex flex-row items-center justify-center md:mx-auto">
             <a
                 href="#!"
                 type="button"
@@ -80,7 +80,7 @@ export default function Footer() {
         <div
             class="p-4 text-center bg-black"
             >
-            © 2023 Hook Design. All rights reserved. | [Addres coms here] | emailadrress@gmail.com | +90 537 652 4445
+            © 2023 Hook Design. All rights reserved. | Antalya, Turkey | farukciftcioglu@gmail.com | +90 537 652 4445
             <a class="text-whitehite" href="#"
             ></a>
         </div>

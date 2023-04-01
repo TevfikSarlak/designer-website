@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function About() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+      
     return (
         <div className="flex flex-col text-left text-lg md:m-60 mx-auto font-sans mb-24 mt-60">
            <p className="pl-4 ">
