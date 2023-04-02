@@ -6,10 +6,11 @@ import DataYachts from '../datas/DataYachts';
 
 
 export default function Home(props) {
-
-    const handlePageChange = (page) => {
-      props.handlePageChange(page);
-    }
+    
+    
+    //const handlePageChange = (page) => {
+      //props.handlePageChange(page);
+    //}
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -61,8 +62,8 @@ export default function Home(props) {
   
 
     return (
-      <div>
-        <div class="relative w-full font-sans">
+      <div  className={` ${props.darkMode && 'dark'}`}>
+        <div class="relative w-full font-sans dark:bg-darkBlue">
              <img src="../images/header.jpg" alt="header" class="w-full object-cover max-w-screen-2xl"/>
          
              <div class="">
@@ -73,14 +74,14 @@ export default function Home(props) {
              </div>
        </div>
      
-        
-        <div className="mt-36 flex flex-col justify-center justify-items-center
+       <div  className={` ${props.darkMode && 'dark'}`}>
+        <div className="first-letter: dark:bg-darkBlue mt-36 flex flex-col justify-center justify-items-center
           mx-auto space-y-6 mb-60">
-            <h1 className="text-2xl mx-auto text-center font-semibold flex md:text-4xl text-gray-700 ">
+            <h1 className="text-2xl mx-auto text-center font-semibold flex md:text-4xl text-gray-700 dark:text-gray-200">
                 What we've done and What we offering...    
             </h1>
             
-            <p className="text-gray-500 text-md text-center md:text-xl mx-4 mb-24">
+            <p className="text-gray-500 dark:text-white text-md text-center md:text-xl mx-4 mb-24">
                 Here is a quick preview of what kind of works we have done. 
                 We hope that inspires you about your dream Yacht. 
             </p>
@@ -141,6 +142,7 @@ export default function Home(props) {
             </div>
 
         </div>
+      </div>
       </div>
     )
 }

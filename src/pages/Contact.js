@@ -67,7 +67,7 @@ export default function Contact() {
                         style={{ opacity: 1 }}
                         onFocus={(e) => e.target.style.opacity = 0.8}
                         onBlur={(e) => e.target.style.opacity = 1}>
-        Submit
+        Send
       </button>
     </form>
   );

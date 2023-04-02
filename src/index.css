@@ -13,7 +13,13 @@ html, body {
   overflow-x: hidden;
 }
 
+body.dark {
+  background-color: #14213d;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+

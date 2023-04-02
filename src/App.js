@@ -12,30 +12,36 @@ import About from './pages/About';
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Home");
+  const [darkMode, setDarkMode] = useState(false)
+  
 
   let pageComponent;
 
   if (currentPage === "Home") {
-    pageComponent = <Home handlePageChange={handlePageChange}/>;
+    pageComponent = <Home handlePageChange={handlePageChange}
+                           darkMode={darkMode}/>;
   } else if (currentPage === "About") {
-    pageComponent = <About />;
+    pageComponent = <About  darkMode={darkMode} />;
   } else if (currentPage === "Contact") {
-    pageComponent = <Contact />;
+    pageComponent = <Contact  darkMode={darkMode} />;
   } else if (currentPage === "Portfolio") {
-    pageComponent = <Portfolio />;
+    pageComponent = <Portfolio  darkMode={darkMode} />;
   }
 
   function handlePageChange(newPage){
     setCurrentPage(newPage)
   }
 
-  
-
-
+  function handleDarkMode(mode){
+    setDarkMode(!mode)
+    document.body.classList.toggle('dark');
+  }
 
   return (
     <div className="App">
-      <Navbar handlePageChange={handlePageChange}/>
+      <Navbar handlePageChange={handlePageChange}
+              darkMode={darkMode}
+              handleDarkMode={handleDarkMode} />
       
       {pageComponent}
       

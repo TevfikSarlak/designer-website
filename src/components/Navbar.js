@@ -1,8 +1,13 @@
-import React, {useEffect, useLocation} from "react";
+import React, {useEffect, useState} from "react";
+
 
 
 export default function Navbar(props) {
-  const [isNavOpen, setIsNavOpen] = React.useState(false)
+  const [isNavOpen, setIsNavOpen] = useState(false)
+  
+  
+  
+  
   //const {currentPage} = props.handlePageChange();
   
 
@@ -17,7 +22,11 @@ export default function Navbar(props) {
   
 
   return (
-    <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl w-full">
+
+    <div className={` ${props.darkMode && 'dark'}`}>
+    
+    <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between  bg-white font-sans 
+    shadow-xl w-full dark:bg-black dark:text-white ">
       <div className="flex flex-row justify-start items-center  ">
       <img src="../images/hook-logo.jpeg" alt="logo" className="h-16 w-16 mr-4 " />
       <h1 className="font-sans  text-2xl font-bold ">
@@ -28,29 +37,44 @@ export default function Navbar(props) {
                 <div class="group">
                   <button onClick={()=>props.handlePageChange("Home")}>Home</button>
                   <div
-                    className="mx-2 group-hover:border-b  group-hover:border-black "
+                    className="mx-2 group-hover:border-b  group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
                   ></div>
                 </div>
                 <div class="group">
                   <button onClick={()=>props.handlePageChange("About")} >About</button>
                   <div
-                    class="mx-2 group-hover:border-b  group-hover:border-black "
+                    class="mx-2 group-hover:border-b  group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white "
                   ></div>
                 </div>
                 <div class="group">
                   <button onClick={()=>props.handlePageChange("Portfolio")}>Portfolio</button>
                   <div
-                    class="mx-2 group-hover:border-b group-hover:border-black "
+                    class="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
                   ></div>
                 </div>
                 <div class="group">
                   <button onClick={()=>props.handlePageChange("Contact")}>Contact</button>
                   <div
-                    class="mx-2 group-hover:border-b group-hover:border-black"
+                    class="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
                   ></div>
                 </div>
-            </div>
+                
+                <div>
+                  <button>
+                    <img src={props.darkMode ? "../images/light.svg" : "../images/dark.svg"} className="flex justify-end rounded-full bg-slate-200" 
+                    onClick={()=>props.handleDarkMode(props.darkMode)}/>
+                  </button>
+                </div>
 
+                
+                
+                
+                
+  
+                
+
+            </div>
+   
           
   
   <div className="md:hidden max-w-screen-sm">
@@ -58,7 +82,7 @@ export default function Navbar(props) {
       id="menu-btn"
       type="button"
       className={`${isNavOpen ? 'open' : 'hamburger '}  block md:hidden focus:outline-none mr-4 mt-4 items-center`}
-      onClick={() => setIsNavOpen(prev => !prev)}
+      onClick={() =>props.setIsNavOpen(prev => !prev)}
     >
       <span className={isNavOpen ? "open hamburger-top" : "hamburger-top"}></span>
       <span className={isNavOpen ? "open hamburger-middle" : "hamburger-middle"}></span>
@@ -154,7 +178,7 @@ export default function Navbar(props) {
         </footer>
   </div>
 
-
+  
 <style>{`
   .hamburger {
     cursor: pointer;
@@ -210,8 +234,8 @@ export default function Navbar(props) {
 
 
     </div>
-    
   
+ </div>
   );
 
   
