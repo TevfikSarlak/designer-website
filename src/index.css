@@ -14,12 +14,13 @@ html, body {
 }
 
 body.dark {
-  background-color: #14213d;
+  background-color: #030027;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 
 
