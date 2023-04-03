@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkBlue: '#14213d',
+        darkBlue: '#030027',
       },
       fontFamily: {
         'sans': ['Bai Jamjuree', 'sans-serif'],

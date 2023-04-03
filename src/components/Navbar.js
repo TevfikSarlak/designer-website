@@ -77,22 +77,25 @@ export default function Navbar(props) {
    
           
   
-  <div className="md:hidden max-w-screen-sm">
+  <div className={` ${props.darkMode && 'dark'} md:hidden max-w-screen-sm flex flex-row justify-end items-center  mt-2`}>
+ 
+  <div>
     <button
       id="menu-btn"
       type="button"
-      className={`${isNavOpen ? 'open' : 'hamburger '}  block md:hidden focus:outline-none mr-4 mt-4 items-center`}
-      onClick={() =>props.setIsNavOpen(prev => !prev)}
+      className={`${isNavOpen ? 'open' : 'hamburger '}  flex md:hidden focus:outline-none mr-4 flex-row  justify-evenly items-center`}
+      onClick={() =>setIsNavOpen(prev => !prev)}
     >
       <span className={isNavOpen ? "open hamburger-top" : "hamburger-top"}></span>
       <span className={isNavOpen ? "open hamburger-middle" : "hamburger-middle"}></span>
       <span className={isNavOpen ? "open hamburger-bottom" : "hamburger-bottom"}></span>
     </button>
   </div>
+  </div>
 
   <div
     id="menu" 
-    className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black md:hidden
+    className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black md:hidden dark:text-white dark:bg-black
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
     <div className="flex flex-col leading-10 font-sans "  onClick={()=>setIsNavOpen(false)}>
@@ -172,6 +175,14 @@ export default function Navbar(props) {
                       d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                   </svg>
               </a>
+              <div className="flex flex-row justify-end items-center ">
+                      <button>
+                        <img src={props.darkMode ? "../images/light.svg" : "../images/dark.svg"} className="relative items-center  
+                         justify-around rounded-full
+                        bg-slate-200 mx-2" 
+                        onClick={()=>props.handleDarkMode(props.darkMode)}/>
+                      </button>
+              </div>
 
               </div>
           </div>
@@ -188,6 +199,7 @@ export default function Navbar(props) {
     position: relative;
   }
 
+
   .hamburger-top,
   .hamburger-middle,
   .hamburger-bottom {
@@ -196,14 +208,16 @@ export default function Navbar(props) {
     height: 2px;
     top: 0;
     left: 0;
-    background: black;
+    background-color: gray;
     transform: rotate(0);
     transition: all 0.5s;
   }
 
+
   .hamburger-middle {
     transform: translateY(7px);
   }
+
 
   .hamburger-bottom {
     transform: translateY(14px);
@@ -215,7 +229,7 @@ export default function Navbar(props) {
 
   .open .hamburger-top {
     transform: rotate(45deg) translateY(6px) translateX(6px);
-    background: black;
+    background: gray;
   }
 
   .open .hamburger-middle {
@@ -224,7 +238,7 @@ export default function Navbar(props) {
 
   .open .hamburger-bottom {
     transform: rotate(-45deg) translateY(6px) translateX(-6px);
-    background: black;
+    background: gray;
   }
 
   #menu {
