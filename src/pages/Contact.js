@@ -1,21 +1,24 @@
 import React from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 
-export default function Contact() {
+export default function Contact(props) {
    
   const [state, handleSubmit] = useForm("xgebnlvw");
   
   
   
   if (state.succeeded) {
-      return <p className='flex flex-col mx-auto justify-center items-center
-      mt-72 mb-60 font-sans text-2xl font-bold'>Thanks for sending a message. We will be in touch shortly!</p>;
+      return <p className={`flex flex-col mx-auto justify-center items-center
+      mt-72 mb-60 font-sans text-2xl font-bold  ${props.darkMode ? 'text-slate-100' : 'text-black'}`}
+      >Thanks for sending a message. We will be in touch shortly!</p>;
   }
   return (
       <form onSubmit={handleSubmit} className='flex flex-col my-60 mx-6 md:mx-36'>
-        <h1 className='flex flex-col justify-center font-sans text-xl md:text-4xl underline my-12'>Contact</h1>
+        <h1 className={`flex flex-col justify-center font-sans text-xl md:text-4xl underline my-12
+                      ${props.darkMode ? 'text-slate-100': 'text-black'}`}>Contact</h1>
       <label htmlFor="name" 
-      className="flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md ">
+      className={`flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md 
+                 ${props.darkMode ? 'text-slate-100': 'text-black'}`}>
         Name:
       </label>
       <input
@@ -28,7 +31,8 @@ export default function Contact() {
       />
 
       <label htmlFor="email" 
-      className="flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md ">
+      className={`flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md
+                 ${props.darkMode ? 'text-slate-100': 'text-black'} `}>
         Email Address:
       </label>
       <input
@@ -45,7 +49,8 @@ export default function Contact() {
         errors={state.errors}
       />
       <label htmlFor="message" 
-      className="flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md ">
+      className={`flex flex-row ml-6 md:ml-36  font-sans text-md border-gray-300 rounded-md 
+                 ${props.darkMode ? 'text-slate-100': 'text-black'}`}>
         Message:
       </label>
       <textarea
@@ -62,8 +67,11 @@ export default function Contact() {
         errors={state.errors}
       />
       <button type="submit" disabled={state.submitting}
-              className='mx-auto px-8 justify-center items-center bg-black rounded-md text-white hover:bg-white hover:border-black hover:border-2 hover:text-black 
-                       h-12 hover:font-semibold transition-opacity duration-300 font-sans'
+              className={`mx-auto px-8 justify-center items-center ${props.darkMode 
+                ? 'bg-slate-700 hover:bg-white hover: border-slate-700 hover: border-2 hover:text-slate-700'
+              : 'bg-black hover:bg-white hover:border-black hover:border-2  hover:text-black'}
+               rounded-md text-white   
+                       h-12 hover:font-semibold transition-opacity duration-300 font-sans`}
                         style={{ opacity: 1 }}
                         onFocus={(e) => e.target.style.opacity = 0.8}
                         onBlur={(e) => e.target.style.opacity = 1}>

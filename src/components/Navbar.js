@@ -1,110 +1,118 @@
-import React, {useEffect, useState} from "react";
-
-
+import React, { useEffect, useState } from "react";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import { Icon } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 export default function Navbar(props) {
-  const [isNavOpen, setIsNavOpen] = useState(false)
-  
-  
-  
-  
-  //const {currentPage} = props.handlePageChange();
-  
+  // State for the navigation menu
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-//useEffect(()=>{
-  //setIsNavOpen(false);
-//},[ props.handlePageChange()])
+  // Constants for icon size and class
+  const iconSize = 24;
+  const iconClass = props.darkMode ? "bg-black text-white" : "bg-white text-black";
 
-//function navMenuCloser(isNavOpen) {
-  //setIsNavOpen(!isNavOpen)
-//}
-  
-  
+  // Handler function for closing the navigation menu
+  // function navMenuCloser(isNavOpen) {
+  //   setIsNavOpen(!isNavOpen);
+  // }
+
+  // useEffect for resetting the state of the navigation menu when the page changes
+  // useEffect(() => {
+  //   setIsNavOpen(false);
+  // }, [props.handlePageChange()]);
 
   return (
+    // Navbar container with dark mode styling
+    <div className={` ${props.darkMode && "dark"}`}>
+      {/* Navigation bar */}
+      <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl w-full dark:bg-black dark:text-white">
+        {/* Logo and title */}
+        <div className="flex flex-row justify-start items-center">
+          <img src="../images/hook-logo.jpeg" alt="logo" className="h-16 w-16 mr-4 shadow-lg" />
+          <h1 className="font-sans text-2xl font-bold">Hook</h1>
+        </div>
+        {/* Navigation links */}
+        <div className="hidden items-center pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
+          <div class="group">
+            <button onClick={() => props.handlePageChange("Home")}>Home</button>
+            <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
+          </div>
+          <div class="group">
+            <button onClick={() => props.handlePageChange("About")}>About</button>
+            <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
+          </div>
+          <div class="group">
+            <button onClick={() => props.handlePageChange("Portfolio")}>Portfolio</button>
+            <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
+          </div>
+          <div class="group">
+            <button onClick={() => props.handlePageChange("Contact")}>Contact</button>
+            <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
+          </div>
+          {/* Dark mode toggle */}
+          <div>
+            <button>
+              <Icon
+                className={`flex justify-center items-start rounded-full ${props.darkMode ? "bg-black text-white" : "bg-white text-black"
+                  } text-6xl h-20 w-16 p-0`}
+                onClick={() => props.handleDarkMode(props.darkMode)}
+              >
+                {props.darkMode ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
+              </Icon>
+            </button>
+          </div>
+        </div>
 
-    <div className={` ${props.darkMode && 'dark'}`}>
-    
-    <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between  bg-white font-sans 
-    shadow-xl w-full dark:bg-black dark:text-white ">
-      <div className="flex flex-row justify-start items-center  ">
-      <img src="../images/hook-logo.jpeg" alt="logo" className="h-16 w-16 mr-4 " />
-      <h1 className="font-sans  text-2xl font-bold ">
-        Hook
-      </h1>
-      </div>
-      <div class="hidden   pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
-                <div class="group">
-                  <button onClick={()=>props.handlePageChange("Home")}>Home</button>
-                  <div
-                    className="mx-2 group-hover:border-b  group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
-                  ></div>
-                </div>
-                <div class="group">
-                  <button onClick={()=>props.handlePageChange("About")} >About</button>
-                  <div
-                    class="mx-2 group-hover:border-b  group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white "
-                  ></div>
-                </div>
-                <div class="group">
-                  <button onClick={()=>props.handlePageChange("Portfolio")}>Portfolio</button>
-                  <div
-                    class="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
-                  ></div>
-                </div>
-                <div class="group">
-                  <button onClick={()=>props.handlePageChange("Contact")}>Contact</button>
-                  <div
-                    class="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"
-                  ></div>
-                </div>
-                
-                <div>
-                  <button>
-                    <img src={props.darkMode ? "../images/light.svg" : "../images/dark.svg"} className="flex justify-end rounded-full bg-slate-200" 
-                    onClick={()=>props.handleDarkMode(props.darkMode)}/>
-                  </button>
-                </div>
-
-                
-                
-                
-                
-  
-                
-
-            </div>
-   
           
   
-  <div className={` ${props.darkMode && 'dark'} md:hidden max-w-screen-sm flex flex-row justify-end items-center  mt-2`}>
+  <div 
+    // Adds dark mode class if props.darkMode is true
+    className={` ${props.darkMode && 'dark'} md:hidden max-w-screen-sm flex flex-row justify-end items-center  mt-2`}>
  
+  <div className="flex flex-row justify-end space-x-2 items-end mr-2">
   <div>
-    <button
-      id="menu-btn"
-      type="button"
-      className={`${isNavOpen ? 'open' : 'hamburger '}  flex md:hidden focus:outline-none mr-4 flex-row  justify-evenly items-center`}
-      onClick={() =>setIsNavOpen(prev => !prev)}
-    >
-      <span className={isNavOpen ? "open hamburger-top" : "hamburger-top"}></span>
-      <span className={isNavOpen ? "open hamburger-middle" : "hamburger-middle"}></span>
-      <span className={isNavOpen ? "open hamburger-bottom" : "hamburger-bottom"}></span>
-    </button>
+          <button>
+              <Icon 
+                  // Toggles between LightModeOutlinedIcon and DarkModeOutlinedIcon based on props.darkMode
+ 
+                  className={`flex justify-center items-start rounded-full ${
+                            props.darkMode
+                            ? 'bg-black text-white'
+                            : 'bg-white text-black'
+                            } text-6xl h-18 w-16 p-0`} 
+                            onClick={()=>props.handleDarkMode(props.darkMode)}>
+                            {props.darkMode ? <LightModeOutlinedIcon/> : <DarkModeOutlinedIcon/>}
+              </Icon>
+            </button>
+    </div>
+     <button
+        className={`${isNavOpen ? 'open' : 'hamburger'} flex md:hidden focus:outline-none mr-6 flex-row justify-evenly items-center`}
+        onClick={() => setIsNavOpen(prev => !prev)}
+      >
+        {isNavOpen ? (
+          <CloseIcon style={{ fontSize: iconSize }} className={`rounded-full p-0 h-18 w-16 text-6xl ${iconClass}`} />
+        ) : (
+          <MenuIcon style={{ fontSize: iconSize }} className={`rounded-full p-0 h-18 w-16 text-6xl ${iconClass}`} />
+        )}
+      </button>
   </div>
   </div>
 
   <div
     id="menu" 
+    // Toggles between hamburger and close icon based on isNavOpen
     className={`absolute top-full left-0 w-full py-1 pt-20 pl-12 space-y-3 text-lg text-black md:hidden dark:text-white dark:bg-black
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
     <div className="flex flex-col leading-10 font-sans "  onClick={()=>setIsNavOpen(false)}>
-      <button onClick={()=>props.handlePageChange("Home")} className="hover:text-bg-gray-600">Home</button>
+      <button onClick={()=>props.handlePageChange("Home")} className="hover:text-gray-600">Home</button>
       <button onClick={()=>props.handlePageChange("About")} className="hover:text-gray-600">About</button>
       <button onClick={()=>props.handlePageChange("Portfolio")} className="hover:text-gray-600">Portfolio</button>
       <button onClick={()=>props.handlePageChange("Contact")} className="hover:text-gray-600">Contact</button>
     </div>
-
+     {/*Footer section in Hambuerger menu*/}
     <footer class="bg-gray-800 text-center text-white justify-center mt-24">
             <div class="container justify-center  px-6 pt-6">
               <div class="mb-6 flex flex-row items-center justify-center">
@@ -175,21 +183,13 @@ export default function Navbar(props) {
                       d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
                   </svg>
               </a>
-              <div className="flex flex-row justify-end items-center ">
-                      <button>
-                        <img src={props.darkMode ? "../images/light.svg" : "../images/dark.svg"} className="relative items-center  
-                         justify-around rounded-full
-                        bg-slate-200 mx-2" 
-                        onClick={()=>props.handleDarkMode(props.darkMode)}/>
-                      </button>
-              </div>
 
               </div>
           </div>
         </footer>
   </div>
 
-  
+{/*Style for Hamburger menu*/} 
 <style>{`
   .hamburger {
     cursor: pointer;
