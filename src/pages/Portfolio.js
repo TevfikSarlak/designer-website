@@ -1,7 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
+
+
 
 export default function Portfolio (props) {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
+      
     return (
+        
         <div className="mt-24 mx-6 mb-12">
             <div className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans flex flex-col border-none rounded-lg shadow-xl`}>
                 <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8">

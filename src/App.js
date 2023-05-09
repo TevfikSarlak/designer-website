@@ -1,12 +1,15 @@
 
 import './App.css';
-import React, {useState} from 'react';
-import Navbar from './components/Navbar';
+import React, {useState, lazy, Suspense } from 'react';
+//import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import About from './pages/About';
+import LoadingPage from './components/LoadingPage';
+
+const Navbar = lazy(() => import('./components/Navbar'));
 
 
 
@@ -39,13 +42,15 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar handlePageChange={handlePageChange}
-              darkMode={darkMode}
-              handleDarkMode={handleDarkMode} />
-      
-      {pageComponent}
-      
-      <Footer />
+      <Suspense fallback={<LoadingPage />}>
+        <Navbar handlePageChange={handlePageChange}
+                darkMode={darkMode}
+                handleDarkMode={handleDarkMode} />
+        
+        {pageComponent}
+        
+        <Footer />
+      </Suspense>
       
     </div>
   );
