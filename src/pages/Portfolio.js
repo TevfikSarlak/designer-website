@@ -82,7 +82,7 @@ export default function Portfolio (props) {
                 
                 variants={itemVariants}
 
-                className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-36 font-sans 
                            flex flex-col border-none rounded-lg  mx-6 shadow-xl`}>
                 <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8">
                     <div>
@@ -120,7 +120,7 @@ export default function Portfolio (props) {
                 <motion.div 
                    variants={itemVariants}
                    
-                   className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                   className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-36 font-sans 
                                flex flex-col border-none rounded-lg shadow-xl mx-6`}>            
                   <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8 ">
                     <div>
@@ -159,7 +159,7 @@ export default function Portfolio (props) {
             <motion.div 
                     variants={itemVariants}
                  
-                    className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                    className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-36 font-sans 
                        flex flex-col border-none rounded-lg shadow-xl mx-6`}>
                <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8">
                     <div>
@@ -198,7 +198,7 @@ export default function Portfolio (props) {
            <motion.div 
                  variants={itemVariants}
                 
-                 className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans
+                 className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-36 font-sans
                            flex flex-col border-none rounded-lg shadow-xl mx-6`}>             
                  <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8 ">
                     <div>
