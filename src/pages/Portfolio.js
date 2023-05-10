@@ -1,5 +1,6 @@
-import React, {useEffect} from "react";
-
+import React, {useEffect, useState} from "react";
+import {  motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 
 export default function Portfolio (props) {
@@ -8,11 +9,81 @@ export default function Portfolio (props) {
         window.scrollTo(0, 0);
       }, []);
 
-      
+      const [imageLoaded, setImageLoaded] = useState(false);
+      const {ref, inView} = useInView({
+        threshold: 0.95, 
+        triggerOnce: true
+      });
+
+      const handleImageLoad = () => {
+        setImageLoaded(true);
+      };
+
+      const containerVariants = {
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: 2,
+            delayChildren: 1
+          }
+        }
+      }
+
+      const itemVariants = {
+        hidden: {
+          x: '-100vw',
+
+        },
+        visible: {
+          x: 0,
+          opacity: 1,
+          transition: {
+            duration: 1.5,
+            ease: 'easeOut'
+          }
+        }
+      }
+
+
     return (
         
-        <div className="mt-24 mx-6 mb-12">
-            <div className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans flex flex-col border-none rounded-lg shadow-xl`}>
+        <div className="mt-12 mb-12">
+             <div class="relative w-full font-sans dark:bg-darkBlue mb-48">
+             <img src="../images/portfolio-image.jpg" 
+                  alt="Portfolio" 
+                  class="w-full h-72 md:h-1/3 shadow-2xl "
+                  onLoad={handleImageLoad}
+             />
+             {!imageLoaded && (
+                <div className="flex flex-col justify-center items-center h-screen">
+                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+                    <p className="text-3xl font-semibold text-gray-800 mt-8">Loading...⚓</p>
+                </div>
+             )}
+              <div>
+                  <h1 
+                        
+                       className={`absolute text-4xl text-right bottom-5 md:bottom-10 p-2 md:p-16 md:text-8xl
+                        font-extrabold right-5 md:right-10 text-white ${imageLoaded ? '' : 'hidden'}`}>
+                    Portfolio
+                  </h1>  
+              </div>
+             
+            </div>
+            <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                animate={inView ? 'visible' : 'hidden'}
+                ref={ref}
+                whileInView="visible"
+            >
+               
+           <motion.div
+                
+                variants={itemVariants}
+
+                className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                           flex flex-col border-none rounded-lg  mx-6 shadow-xl`}>
                 <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8">
                     <div>
                         <img src="../slide-images/Ferry/1.jpg" alt="Ferry-Porfolio"
@@ -44,9 +115,13 @@ export default function Portfolio (props) {
                       
                 </div>
                  
-            </div>
+            </motion.div>
 
-                <div className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans flex flex-col border-none rounded-lg shadow-xl`}>            
+                <motion.div 
+                   variants={itemVariants}
+                   
+                   className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                               flex flex-col border-none rounded-lg shadow-xl mx-6`}>            
                   <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8 ">
                     <div>
                         <img src="../slide-images/NavalBoats/2.jpg" alt="NavalBoats-Porfolio"
@@ -79,9 +154,13 @@ export default function Portfolio (props) {
                   </div>
                 
                  
-              </div>
+              </motion.div>
 
-            <div className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans flex flex-col border-none rounded-lg shadow-xl`}>
+            <motion.div 
+                    variants={itemVariants}
+                 
+                    className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans 
+                       flex flex-col border-none rounded-lg shadow-xl mx-6`}>
                <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8">
                     <div>
                         <img src="../slide-images/WorkBoats/1.jpg" alt="WorkBoats-Porfolio"
@@ -113,10 +192,14 @@ export default function Portfolio (props) {
                     
                 </div>
                  
-            </div>
+            </motion.div>
 
 
-           <div className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans flex flex-col border-none rounded-lg shadow-xl`}>             
+           <motion.div 
+                 variants={itemVariants}
+                
+                 className={`${props.darkMode ? 'bg-slate-800 text-slate-100' : 'bg-slate-300'}  my-24 font-sans
+                           flex flex-col border-none rounded-lg shadow-xl mx-6`}>             
                  <div className="flex flex-col md:grid md:grid-cols-2 md:gap-6 mb-8 ">
                     <div>
                         <img src="../slide-images/Yachts/4.jpg" alt="Yachts-Porfolio"
@@ -152,8 +235,10 @@ export default function Portfolio (props) {
                     </div>
                     
                   </div>
-                </div>
-                 
+                </motion.div>
+                </motion.div>
+            
+    
             </div>
         
     )

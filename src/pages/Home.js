@@ -23,7 +23,7 @@ export default function Home(props) {
     const [workUrl,  setWorkUrl] = React.useState(DataWorkBoats[0])
     const [ferryUrl, setFerryUrl] = React.useState(DataFerry[0])
     const [yachtUrl, setYachtUrl] = React.useState(DataYachts[0])
-    const {ref, inView} = useInView({ threshold: 0.4 });
+    const {ref, inView} = useInView({ threshold: 0.2 });
     const animation = useAnimation();
     
 
@@ -37,13 +37,15 @@ export default function Home(props) {
           x: 0,
           transition: {
              type: 'spring', 
-             duration: 3, 
-             bounce: 0.1
+             duration: 4, 
+             bounce: 0.1,
+             delay: 0.2
           }
         })
       } else {
         animation.start({
-          x: '-100vw'
+          x: '-100vw',
+          duration: 4
         })
       }
     },[inView])
@@ -89,9 +91,7 @@ export default function Home(props) {
 
     return (
       <div  className={` ${props.darkMode && 'dark'}`}>
-        <div 
-               
-                class="relative w-full font-sans dark:bg-darkBlue">
+        <div class="relative w-full font-sans dark:bg-darkBlue">
              <img src="../images/header.jpg" alt="header" class="w-full object-cover max-w-screen-2xl h-96 md:h-1/3"/>
     
               <div>
@@ -109,7 +109,7 @@ export default function Home(props) {
             <motion.h1 
                initial={{opacity: 0}}
                 transition={{
-                  duration: 2,
+                  duration: 1.5,
                   delay: 1
                }}
                whileInView={{opacity: 1}}
@@ -121,7 +121,7 @@ export default function Home(props) {
                  initial={{opacity: 0}}
                  transition={{
                    duration: 2,
-                   delay: 1
+                   delay: 0.5
                 }}
                 whileInView={{opacity: 1}}
                 className="text-gray-500 dark:text-white text-md text-center md:text-xl mx-4 mb-24">
@@ -173,7 +173,7 @@ export default function Home(props) {
                   initial={{opacity: 0}}
                   transition={{
                     duration: 1.5,
-                    delay: 0.75
+                    delay: 0.5
                  }}
                  whileInView={{opacity: 1}}>
                 <p className={`${props.darkMode ? 'text-gray-100' : 'text-gray-500'} text-md text-center md:text-xl mx-4 mt-12` }>
