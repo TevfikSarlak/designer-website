@@ -11,7 +11,7 @@ export default function About(props) {
         <div className={`${darkToggle && 'dark'}`}>
             <div className="flex flex-col  text-lg md:m-60 mx-auto font-sans mb-24 mt-60 justify-center  dark:text-white dark:bg-darkBlue px-4">
             <div>
-                <img src="../images/mypic.PNG" className="float-none md:float-left md:pr-4 h-40 w-full md:w-80 text-center items-center mb-4" />
+                <img src="../images/mypic.PNG" className="float-none md:float-left md:pr-4 h-40 w-full md:w-96  text-center items-center mb-4" />
                 <p className="text-left">
                         <p className="indent-8">As a yacht and boat designer with extensive experience in both exterior and interior design,
                         I bring a unique perspective to the world of marine design. Since 2013, I have been working
