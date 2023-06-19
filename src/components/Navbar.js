@@ -4,6 +4,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { Icon } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar(props) {
   // State for the navigation menu
@@ -36,19 +37,19 @@ export default function Navbar(props) {
         {/* Navigation links */}
         <div className="hidden items-center pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
           <div class="group">
-            <button onClick={() => props.handlePageChange("Home")}>Home</button>
+            <NavLink to="/" activeClassName="border-b border-black dark:border-white">Home</NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
           <div class="group">
-            <button onClick={() => props.handlePageChange("About")}>About</button>
+            <NavLink to="/about" activeClassName="border-b border-black dark:border-white">About</NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
           <div class="group">
-            <button onClick={() => props.handlePageChange("Portfolio")}>Portfolio</button>
+            <NavLink to="/portfolio" activeClassName="border-b border-black dark:border-white">Portfolio</NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
           <div class="group">
-            <button onClick={() => props.handlePageChange("Contact")}>Contact</button>
+            <NavLink to="/contact" activeClassName="border-b border-black dark:border-white" >Contact</NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
           {/* Dark mode toggle */}
@@ -107,10 +108,10 @@ export default function Navbar(props) {
      bg-white ${isNavOpen ? 'flex flex-col' : 'hidden'}`}
   >
     <div className="flex flex-col leading-10 font-sans "  onClick={()=>setIsNavOpen(false)}>
-      <button onClick={()=>props.handlePageChange("Home")} className="hover:text-gray-600">Home</button>
-      <button onClick={()=>props.handlePageChange("About")} className="hover:text-gray-600">About</button>
-      <button onClick={()=>props.handlePageChange("Portfolio")} className="hover:text-gray-600">Portfolio</button>
-      <button onClick={()=>props.handlePageChange("Contact")} className="hover:text-gray-600">Contact</button>
+      <NavLink to="/" className="hover:text-gray-600">Home</NavLink>
+      <NavLink to="/about" className="hover:text-gray-600">About</NavLink>
+      <NavLink to="/portfolio" className="hover:text-gray-600">Portfolio</NavLink>
+      <NavLink to="/contact" className="hover:text-gray-600">Contact</NavLink>
     </div>
      {/*Footer section in Hambuerger menu*/}
     <footer class="bg-gray-800 text-center text-white justify-center mt-24">
