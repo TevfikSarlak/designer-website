@@ -13,6 +13,7 @@ export default function Navbar(props) {
   // Constants for icon size and class
   const iconSize = 24;
   const iconClass = props.darkMode ? "bg-black text-white" : "bg-white text-black";
+  
 
   return (
     // Navbar container with dark mode styling
@@ -36,7 +37,8 @@ export default function Navbar(props) {
         {/* Navigation links */}
         <div className="hidden items-center pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
           <div className="group">
-            <NavLink to="/"
+            <NavLink exact
+                     to="/"
                      activeClassName="underline text-black dark:text-white"
                      >Home
             </NavLink>

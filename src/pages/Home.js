@@ -5,14 +5,11 @@ import DataFerry from '../datas/DataFerry';
 import DataYachts from '../datas/DataYachts';
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 
 export default function Home(props) {
     
-    
-    //const handlePageChange = (page) => {
-      //props.handlePageChange(page);
-    //}
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -181,10 +178,12 @@ export default function Home(props) {
                         <p className={`${props.darkMode ? 'text-gray-100' : 'text-gray-500'} text-md md:text-xl mx-4 text-center mb-24 `}> you can check the 
                             <span>
                               <button
-                                onClick={()=>props.handlePageChange("Portfolio")}
                                 className="text-blue-600 underline px-1"
                               >
-                                 Portfolio 
+                                <Link to="/portfolio"
+                                  >Portfolio
+                                </Link>
+                                  
                               </button>
                             </span>
                             section.
