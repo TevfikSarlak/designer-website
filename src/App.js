@@ -1,56 +1,39 @@
-
 import './App.css';
-import React, {useState, lazy, Suspense } from 'react';
-//import Navbar from './components/Navbar';
+import React, { useState, lazy, Suspense } from 'react';
+import { createBrowserRouter, Route, RouterProvider, createRoutesFromElements } from 'react-router-dom';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import LoadingPage from './components/LoadingPage';
-
-const Navbar = lazy(() => import('./components/Navbar'));
-
-
+import Navbar from './components/Navbar';
+import RootLayout from './layouts/RootLayout';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("Home");
-  const [darkMode, setDarkMode] = useState(false)
-  
+  const [darkMode, setDarkMode] = useState(false);
 
-  let pageComponent;
-
-  if (currentPage === "Home") {
-    pageComponent = <Home handlePageChange={handlePageChange}
-                           darkMode={darkMode}/>;
-  } else if (currentPage === "About") {
-    pageComponent = <About  darkMode={darkMode} />;
-  } else if (currentPage === "Contact") {
-    pageComponent = <Contact  darkMode={darkMode} />;
-  } else if (currentPage === "Portfolio") {
-    pageComponent = <Portfolio  darkMode={darkMode} />;
-  }
-
-  function handlePageChange(newPage){
-    setCurrentPage(newPage)
-  }
-
-  function handleDarkMode(mode){
-    setDarkMode(!mode)
+  function handleDarkMode(mode) {
+    setDarkMode(!mode);
     document.body.classList.toggle('dark');
   }
 
+  const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<RootLayout handleDarkMode={handleDarkMode} darkMode={darkMode} />}>
+      <Route index element={<Home darkMode={darkMode} />} />
+      <Route path="/about" element={<About darkMode={darkMode} />} />
+      <Route path="/contact" element={<Contact darkMode={darkMode} />} />
+      <Route path="/portfolio" element={<Portfolio darkMode={darkMode} />} />
+    </Route>
+  ));
+
   return (
     <div className="App">
-      <Suspense fallback={<LoadingPage />}>
-        <Navbar handlePageChange={handlePageChange}
-                darkMode={darkMode}
-                handleDarkMode={handleDarkMode} />
-        
-        {pageComponent}
-        
+      <RouterProvider router={router} >
+        <Navbar handleDarkMode={handleDarkMode} darkMode={darkMode} />
+          <Suspense fallback={<LoadingPage />}> </Suspense>
         <Footer />
-      </Suspense>
+      </RouterProvider>
       
     </div>
   );
