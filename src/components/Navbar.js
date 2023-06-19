@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import { Icon } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Navbar(props) {
   // State for the navigation menu
@@ -14,16 +14,6 @@ export default function Navbar(props) {
   const iconSize = 24;
   const iconClass = props.darkMode ? "bg-black text-white" : "bg-white text-black";
 
-  // Handler function for closing the navigation menu
-  // function navMenuCloser(isNavOpen) {
-  //   setIsNavOpen(!isNavOpen);
-  // }
-
-  // useEffect for resetting the state of the navigation menu when the page changes
-  // useEffect(() => {
-  //   setIsNavOpen(false);
-  // }, [props.handlePageChange()]);
-
   return (
     // Navbar container with dark mode styling
     <div className={` ${props.darkMode && "dark"}`}>
@@ -31,25 +21,46 @@ export default function Navbar(props) {
       <div className="flex flex-row fixed top-0 left-0 right-0 z-50 mx-0 justify-between bg-white font-sans shadow-xl w-full dark:bg-black dark:text-white">
         {/* Logo and title */}
         <div className="flex flex-row justify-start items-center">
-          <a href="www.hookdesignbeta.netfily.app"><img src="../images/hook-logo.jpeg" alt="logo" className="h-16 w-16 mr-4 shadow-lg" /></a>
-          <h1 className="font-sans text-2xl font-bold">Hook</h1>
+          <Link to="/">
+            <img src="../images/hook-logo.jpeg" 
+                 alt="logo"
+                 className="h-16 w-16 mr-4 shadow-lg" 
+            />
+          </Link>
+          <h1 className="font-sans text-2xl font-bold">
+            <Link to="/">
+              Hook
+            </Link>
+          </h1>
         </div>
         {/* Navigation links */}
         <div className="hidden items-center pt-6 px-4 h-10 font-sans font-semibold md:flex md:space-x-8 md:justify-end">
-          <div class="group">
-            <NavLink to="/" activeClassName="border-b border-black dark:border-white">Home</NavLink>
+          <div className="group">
+            <NavLink to="/"
+                     activeClassName="underline text-black dark:text-white"
+                     >Home
+            </NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
-          <div class="group">
-            <NavLink to="/about" activeClassName="border-b border-black dark:border-white">About</NavLink>
+          <div className="group">
+            <NavLink to="/about" 
+                     activeClassName="underline text-black dark:text-white"
+                     >About
+            </NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
-          <div class="group">
-            <NavLink to="/portfolio" activeClassName="border-b border-black dark:border-white">Portfolio</NavLink>
+          <div className="group">
+            <NavLink to="/portfolio" 
+                     activeClassName="underline text-black dark:text-white"
+                     >Portfolio
+            </NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
-          <div class="group">
-            <NavLink to="/contact" activeClassName="border-b border-black dark:border-white" >Contact</NavLink>
+          <div className="group">
+            <NavLink to="/contact" 
+                     activeClassName="underline text-black dark:text-white"
+                     >Contact
+            </NavLink>
             <div className="mx-2 group-hover:border-b group-hover:border-black dark:group-hover:border-b dark:group-hover:border-white"></div>
           </div>
           {/* Dark mode toggle */}
