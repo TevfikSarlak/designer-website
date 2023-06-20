@@ -7,6 +7,7 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import LoadingPage from './components/LoadingPage';
 import RootLayout from './layouts/RootLayout';
+import NotFound from './components/NotFound';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -17,7 +18,9 @@ function App() {
   }
 
   const router = createBrowserRouter(createRoutesFromElements(
-    <Route path="/" element={<RootLayout handleDarkMode={handleDarkMode} darkMode={darkMode} />}>
+    <Route path="/"
+           element={<RootLayout handleDarkMode={handleDarkMode} darkMode={darkMode} />}
+           errorElement={<NotFound />} >
       <Route index element={<Home darkMode={darkMode} />} />
       <Route path="/about" element={<About darkMode={darkMode} />} />
       <Route path="/contact" element={<Contact darkMode={darkMode} />} />
